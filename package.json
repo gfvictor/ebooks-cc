@@ -1,0 +1,14 @@
+{
+  "name": "ebooks-cc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Coletânea Fundamentos da Web Moderna - Extensão Acadêmica, Ciência da Computação (UNIP)",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "codifylab-config": "^1.0.0",
+    "prettier": "^3.9.0"
+  }
+}
