@@ -1,0 +1,76 @@
+---
+author: 'Victor Gama de Farias'
+subject: 'Extensão Acadêmica - Ciência da Computação'
+keywords: 'CSS, Tailwind CSS, Next.js, TypeScript, Desenvolvimento Web'
+lang: 'pt-BR'
+titlepage: true
+toc: true
+toc-title: 'Sumário'
+geometry: 'top=3cm, bottom=3cm, left=2.5cm, right=2.5cm'
+fontsize: 12pt
+header-includes: |
+  \providecommand{\xmpquote}[1]{#1}
+  \usepackage{fancyhdr}
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0.01pt}
+  \usepackage{sectsty}
+  \sectionfont{\centering}
+  \subsectionfont{\centering}
+  \usepackage{indentfirst}
+  \usepackage{setspace}
+  \onehalfspacing
+  \setlength{\parskip}{1em}
+  \usepackage{xcolor}
+  \usepackage{etoolbox}
+  \usepackage{tcolorbox}
+  \tcbuselibrary{breakable}
+  \definecolor{codegray}{HTML}{1C1C1C}
+  \definecolor{codewhite}{HTML}{F8F8F2}
+  \definecolor{monokaiorange}{HTML}{FD971F}
+  \definecolor{monokaipink}{HTML}{F92672}
+  \definecolor{monokaicyan}{HTML}{66D9EF}
+  \renewenvironment{Shaded}{
+    \begin{tcolorbox}[
+      breakable,
+      colback=codegray,
+      colframe=codegray,
+      fontupper=\color{codewhite},
+      arc=0pt,
+      outer arc=0pt,
+      boxrule=0pt,
+      left=5pt,
+      right=5pt,
+      top=5pt,
+      bottom=5pt
+    ]
+  }{
+    \end{tcolorbox}
+  }
+  \AtBeginEnvironment{Shaded}{\color{white}}
+  \AtBeginDocument{
+    \renewcommand{\KeywordTok}[1]{\textcolor{monokaipink}{\textbf{#1}}}
+    \renewcommand{\StringTok}[1]{\textcolor{monokaiorange}{#1}}
+    \renewcommand{\BuiltInTok}[1]{\textcolor{monokaicyan}{#1}}
+    \renewcommand{\FunctionTok}[1]{\textcolor{monokaicyan}{#1}}
+    \renewcommand{\OperatorTok}[1]{\textcolor{monokaicyan}{#1}}
+    \renewcommand{\VariableTok}[1]{\textcolor{monokaicyan}{#1}}
+  }
+  \AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
+  \pagenumbering{gobble}
+  \makeatletter
+  \def\maketitle{
+    \begin{titlepage}
+    \centering
+    \vspace*{\fill}
+    {\Huge\bfseries \@title \par}
+    \vspace*{10em}
+    {\Large \@author \par}
+    \vspace*{1.5em}
+    {\large \@date \par}
+    \vspace*{\fill}
+    \end{titlepage}
+    \pagestyle{empty}
+    \newpage
+  }
+---
