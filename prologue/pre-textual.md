@@ -17,11 +17,14 @@ sozinho depois, e vivi com a sensação de estar sempre atrasado em
 relação a todo mundo. O problema nunca foi capacidade. Era falta de
 mapa.
 
-O que teria mudado tudo não era mais um tutorial. Era alguém sentar do
-meu lado e dizer: para de vagar, escolhe um rumo, e constrói uma coisa
-de verdade - uma só, difícil o suficiente para te obrigar a aprender o
-que importa. Esse alguém eu não tive. Este livro é essa conversa,
-escrita.
+O que teria me poupado meses não era outro tutorial. Era alguém sentar
+do meu lado e dizer: para de vagar, escolhe um rumo, e constrói uma
+coisa de verdade - uma só, difícil o suficiente para te obrigar a
+aprender o que importa. Esse alguém eu demorei a encontrar, e só
+engrenei de verdade quando encontrei: um mentor que me deu direção no
+lugar de mais uma lista de vídeos. O mérito de ter saído do buraco não
+foi só meu. Este livro é a tentativa de ser essa direção para quem
+ainda não tem um mentor por perto.
 
 Ele não assume que você quer fazer sites, jogos, aplicativos ou
 ciência de dados. Assume só que você quer construir alguma coisa com
@@ -30,9 +33,9 @@ escolher é seu; o método para andar nele é o mesmo.
 
 ### O Que Este Livro Faz
 
-Este é o Prólogo da coletânea **Fundamentos da Web Moderna** - ele vem
-antes de todos os outros e, ao contrário deles, não escolhe uma
-tecnologia por você. O que ele faz:
+Este é o Prólogo da coletânea - ele vem antes de todos os outros
+livros e, ao contrário deles, não escolhe uma tecnologia nem uma área
+por você. O que ele faz:
 
 1. **Mostra o território** para você escolher uma direção - não uma
    linguagem, uma direção;
@@ -40,8 +43,10 @@ tecnologia por você. O que ele faz:
    tempo suficiente para ela render;
 3. **Separa o que é permanente** - os conceitos que sobrevivem a
    qualquer troca de linguagem depois;
-4. **Mostra como um programa de verdade nasce, roda e é versionado**,
-   longe do botão verde da IDE;
+4. **Cobre o que os tutoriais pulam:** o terminal, como o código vira
+   um programa que roda, o controle de versão e as dependências - o
+   encanamento que separa quem só segue tutorial de quem constrói
+   sozinho;
 5. **Define o projeto certo:** um só, com as propriedades que forçam
    as perguntas certas, no lugar de dez projetos de brinquedo que não
    ensinam nada;
