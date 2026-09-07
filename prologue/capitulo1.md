@@ -38,7 +38,7 @@ O software se divide, a grosso modo, em algumas direções. Nenhuma é uma pris�
 - **Back-end (servidores e APIs):** a lógica e os dados por trás do que o usuário vê; o que responde quando o aplicativo pede alguma coisa. Uma linguagem de propósito geral, um banco de dados, e um jeito de expor isso pela rede;
 - **Mobile:** aplicativos de celular, para Android e iOS. Nativo (a linguagem de cada plataforma) ou multiplataforma (um código para as duas). O ciclo de testar e publicar na loja é mais pesado que o da web;
 - **Jogos:** um motor (_engine_), um laço de renderização, física, arte, som. Matemática e desempenho aparecem cedo, e a barra de "parece um jogo de verdade" é alta;
-- **Dados e aprendizado de máquina:** extrair resposta de dados - estatística, planilhas turbinadas, *notebooks* (como Jupyter Notebooks, em Python), modelos que preveem. Menos "aplicativo", mais "pergunta, dado, gráfico ou modelo";
+- **Dados e aprendizado de máquina:** extrair resposta de dados - estatística, planilhas turbinadas, _notebooks_ (como Jupyter Notebooks, em Python), modelos que preveem. Menos "aplicativo", mais "pergunta, dado, gráfico ou modelo";
 - **Infraestrutura e DevOps:** os canos por onde código, dados e _deploys_ passam. Automação, nuvem, _pipelines_, monitoramento. Pouca interface, muito sistema;
 - **Sistemas e embarcado:** perto do metal - sistemas operacionais, drivers, dispositivos com pouca memória. Linguagens sem rede de segurança, onde um erro trava a máquina inteira.
 
