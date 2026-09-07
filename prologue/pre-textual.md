@@ -2,6 +2,18 @@
 \pagenumbering{Roman}
 \pagestyle{plain}
 
+\thispagestyle{empty}
+\vspace*{\fill}
+
+\begin{center}
+\textit{Ao meu amigo e mentor Vinícius.\\[0.5em]
+Sua ajuda deu início à minha jornada.\\[0.5em]
+Obrigado, amigo - você é um amigo.}
+\end{center}
+
+\vspace*{\fill}
+\newpage
+
 ### Prefácio
 
 \begin{center}
