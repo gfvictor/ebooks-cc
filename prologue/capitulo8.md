@@ -74,4 +74,4 @@ Dito isso, uma coisa deste capítulo vale a pena adotar hoje, de graça, sem con
 
 Esse hábito custa quase nada para adotar cedo e custa uma reescrita inteira para corrigir depois, quando o projeto já tem gente de verdade dependendo dele e você descobre, do jeito ruim, que metade da informação dos seus usuários mora presa na cabeça de um único motorista que nunca deveria ter tido essa responsabilidade sozinho.
 
-A palavra "escala" agora tem um significado concreto, não mais um alarme vago que se ouve por aí. Falta uma última peça antes de fechar este mapa: o que significa, de fato, entregar um projeto para alguém rodar, fora da sua garagem. É o assunto do último capítulo.
+A palavra "escala" agora tem um significado concreto, não mais um alarme vago que se ouve por aí. Falta uma última peça antes de fechar este mapa: o que significa, de fato, entregar um projeto para alguém rodar, fora da sua garagem. É o assunto do próximo capítulo.
