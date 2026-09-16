@@ -4,13 +4,16 @@
 
 Este repositório reúne os materiais didáticos da coletânea **Fundamentos da Web Moderna**, um conjunto de manuais produzidos como Atividade de Extensão Acadêmica do curso de Ciência da Computação da UNIP (Universidade Paulista).
 
-Enquanto a trilogia (ou saga) _Git: Versionamento de Código & Fluxo de Trabalho_ cobre o fluxo de trabalho colaborativo, esta coletânea cobre a base técnica para construir interfaces web: da folha de estilo crua ao framework de aplicação.
+Enquanto a trilogia (ou saga) _Git: Versionamento de Código & Fluxo de Trabalho_ cobre o fluxo de trabalho colaborativo, esta coletânea cobre a base técnica para construir interfaces web: da folha de estilo crua ao framework de aplicação. O **Prólogo** abre a coletânea sem assumir nenhuma linguagem nem área — é um guia para quem ainda não sabe por onde começar a programar.
 
 ---
 
 ## Estrutura da Obra
 
-Cada livro proposto é modular e independente, organizado da fundação para a superfície:
+O Prólogo abre a coletânea; os quatro livros são modulares e independentes, organizados da fundação para a superfície:
+
+- **Prólogo — O Verdadeiro Início da Jornada.**
+  Para quem não sabe por onde começar: escolher uma direção antes de uma linguagem, os fundamentos que atravessam qualquer linguagem, o projeto que condensa tudo em vez de dez projetos de brinquedo, uma primeira noção de dados, integração e escala, e como sair do tutorial hell;
 
 - **Livro I — CSS: A Fundação Visual.**
   Modelo de caixa, seletores e especificidade, Flexbox, Grid, unidades responsivas e custom properties;
