@@ -15,8 +15,29 @@ local files = {
   folder .. "/pre-textual.md"
 }
 
+local function capitulo_files(folder)
+  local handle = io.popen("ls " .. folder .. "/capitulo*.md 2>/dev/null")
+  local found = {}
+
+  if handle then
+    for line in handle:lines() do
+      table.insert(found, line)
+    end
+    handle:close()
+  end
+
+  table.sort(found, function(a, b)
+    return tonumber(a:match("capitulo(%d+)%.md")) < tonumber(b:match("capitulo(%d+)%.md"))
+  end)
+
+  return found
+end
+
+for _, path in ipairs(capitulo_files(folder)) do
+  table.insert(files, path)
+end
+
 local optionals = {
-  "capitulo*.md",
   "bonus.md",
   "referencias.md"
 }
@@ -24,7 +45,7 @@ local optionals = {
 for _, p in ipairs(optionals) do
   local path = folder .. "/" .. p
 
-  if p:find("*") or io.open(path, "r") then
+  if io.open(path, "r") then
     table.insert(files, path)
   end
 end
