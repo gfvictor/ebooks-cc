@@ -4,7 +4,7 @@
 
 ### Prefácio
 
-Você terminou o Livro I. Sabe o que é o modelo de caixa, sabe por que a cascata resolve empate por especificidade e ordem, sabe montar um layout com Flexbox e Grid sem googlar "como centralizar uma div" pela enésima vez. Parabéns - você tem CSS de verdade na cabeça agora.
+Você terminou o Livro I. Sabe o que é o modelo de caixa, sabe por que a cascata resolve empate por especificidade e ordem, sabe montar um layout com Flexbox e Grid sem pedir ao Claude ou Gemini "como centralizar uma div" pela enésima vez. Parabéns - você tem CSS de verdade na cabeça agora.
 
 Só que, na prática, você vai abrir um projeto profissional qualquer e ver um HTML cheio de classes parecidas com `flex items-center justify-between gap-4 rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white`. Sua primeira reação vai ser choque: "isso não é o oposto de tudo que a gente aprendeu sobre separar estilo de estrutura?" É uma reação honesta, e este livro existe para responder a ela direito, em vez de mandar você simplesmente confiar no hype.
 
