@@ -72,7 +72,7 @@ app/
   painel/
     layout.js
     page.js
-    pedidos/
+    produtos/
       page.js
 ```
 
@@ -84,7 +84,7 @@ export default function PainelLayout({ children }) {
     <div className="flex min-h-screen">
       <nav className="flex w-56 flex-col gap-2 border-r p-4">
         <Link href="/painel">Início</Link>
-        <Link href="/painel/pedidos">Pedidos</Link>
+        <Link href="/painel/produtos">Produtos</Link>
       </nav>
       <main className="flex-1 p-6">{children}</main>
     </div>
@@ -92,9 +92,9 @@ export default function PainelLayout({ children }) {
 }
 ```
 
-Tanto `/painel` quanto `/painel/pedidos` aparecem com essa barra lateral, e nenhuma das duas páginas precisou importá-la. Os layouts se encaixam como caixas dentro de caixas: o layout raiz envolve o layout do painel, que envolve a página. O `children` de cada layout é o espaço onde entra o nível de baixo.
+Tanto `/painel` quanto `/painel/produtos` aparecem com essa barra lateral, e nenhuma das duas páginas precisou importá-la. Os layouts se encaixam como caixas dentro de caixas: o layout raiz envolve o layout do painel, que envolve a página. O `children` de cada layout é o espaço onde entra o nível de baixo.
 
-O detalhe mais valioso é o que acontece na navegação. Ao ir de `/painel` para `/painel/pedidos`, o layout do painel **não é refeito**: só o conteúdo do `children` troca. A barra lateral fica exatamente onde estava, e se ela tivesse algum estado, como um menu recolhido ou um campo de busca preenchido, esse estado sobreviveria à troca de página. É por isso que layout é o lugar certo para tudo o que é comum a uma seção inteira: navegação, cabeçalho, barra lateral.
+O detalhe mais valioso é o que acontece na navegação. Ao ir de `/painel` para `/painel/produtos`, o layout do painel **não é refeito**: só o conteúdo do `children` troca. A barra lateral fica exatamente onde estava, e se ela tivesse algum estado, como um menu recolhido ou um campo de busca preenchido, esse estado sobreviveria à troca de página. É por isso que layout é o lugar certo para tudo o que é comum a uma seção inteira: navegação, cabeçalho, barra lateral.
 
 > **Cuidado:** a mesma característica tem um lado B. Como o layout não é refeito ao navegar entre as páginas que ele envolve, ele não é o lugar para algo que deveria mudar a cada página. Um título que depende da página atual pertence à página, não ao layout.
 
@@ -254,7 +254,142 @@ E o Next.js os encaixa sempre na mesma ordem, de fora para dentro: o `layout` en
 
 Nenhum desses arquivos é obrigatório além do `page.js`. Comece só com páginas e layouts, e acrescente `loading.js` e `error.js` nas partes do site que buscam dados, que é exatamente onde esperas e falhas acontecem.
 
-### 2.10 O Que Levar Deste Capítulo
+### 2.10 A Vitrine Até Aqui
+
+Hora de aplicar o capítulo na Vitrine. Ao fim desta seção, o projeto tem esta estrutura:
+
+```bash
+vitrine/
+  app/
+    globals.css
+    layout.js
+    not-found.js
+    (site)/
+      layout.js
+      page.js
+      produtos/
+        page.js
+        [id]/
+          page.js
+    (app)/
+      painel/
+        layout.js
+        page.js
+  lib/
+    produtos.js
+```
+
+A parte pública fica no grupo `(site)`, e o painel no grupo `(app)`, cada um com o seu layout, exatamente como a seção 2.6 descreveu. O `app/page.js` criado pelo instalador precisa sair da raiz e ir para dentro de `(site)/`: dois `page.js` respondendo pelo endereço `/` fariam o Next.js recusar o projeto. O `app/layout.js` do Capítulo I continua onde está, como layout raiz dos dois grupos, e o `not-found.js` da seção 2.5 vai direto em `app/`.
+
+Os produtos ainda não vêm de lugar nenhum de verdade. Por enquanto, eles moram numa lista fixa, num arquivo fora de `app/`, que não é rota:
+
+```js
+const produtos = [
+  {
+    id: '1',
+    nome: 'Teclado mecânico',
+    preco: 350,
+    descricao: 'Switches táteis e layout ABNT2.',
+  },
+  {
+    id: '2',
+    nome: 'Mouse sem fio',
+    preco: 120,
+    descricao: 'Sensor óptico e bateria para três meses.',
+  },
+  {
+    id: '3',
+    nome: 'Monitor 24 polegadas',
+    preco: 900,
+    descricao: 'Painel IPS com resolução Full HD.',
+  },
+]
+
+export function listarProdutos() {
+  return produtos
+}
+
+export function buscarProduto(id) {
+  return produtos.find((produto) => produto.id === id)
+}
+```
+
+As páginas nunca leem a lista diretamente: elas chamam `listarProdutos` e `buscarProduto`. Essa separação vai pagar o investimento no Capítulo IV, quando os produtos passarem a vir de uma fonte de dados de verdade. Só esse arquivo muda; nenhuma página precisa saber.
+
+O layout de `(site)` traz o cabeçalho com a navegação:
+
+```jsx
+import Link from 'next/link'
+
+export default function SiteLayout({ children }) {
+  return (
+    <>
+      <header className="flex gap-4 border-b p-4">
+        <Link href="/" className="font-bold">
+          Vitrine
+        </Link>
+        <Link href="/produtos">Produtos</Link>
+      </header>
+      <main className="p-6">{children}</main>
+    </>
+  )
+}
+```
+
+O `<>` vazio é um fragmento do React: um jeito de devolver dois elementos lado a lado sem criar uma `div` extra em volta deles.
+
+A página inicial, `(site)/page.js`, pode ser tão simples quanto um título e um `Link` para os produtos. A lista de produtos, `(site)/produtos/page.js`, usa o grid responsivo do Capítulo IV do Livro II:
+
+```jsx
+import Link from 'next/link'
+import { listarProdutos } from '@/lib/produtos'
+
+export default function ProdutosPage() {
+  const produtos = listarProdutos()
+
+  return (
+    <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {produtos.map((produto) => (
+        <li key={produto.id} className="rounded-lg border p-4">
+          <Link href={`/produtos/${produto.id}`}>{produto.nome}</Link>
+        </li>
+      ))}
+    </ul>
+  )
+}
+```
+
+O `@/` no import é o atalho definido no `jsconfig.json`, apontando para a raiz do projeto: `@/lib/produtos` funciona igual, não importa quão funda seja a pasta de quem importa.
+
+E a página de cada produto, `(site)/produtos/[id]/page.js`, junta a rota dinâmica da seção 2.4 com o `notFound` da seção 2.5:
+
+```jsx
+import { notFound } from 'next/navigation'
+import { buscarProduto } from '@/lib/produtos'
+
+export default async function ProdutoPage({ params }) {
+  const { id } = await params
+  const produto = buscarProduto(id)
+
+  if (!produto) {
+    notFound()
+  }
+
+  return (
+    <article className="flex flex-col gap-2">
+      <h1 className="text-2xl font-bold">{produto.nome}</h1>
+      <p className="text-lg">R$ {produto.preco}</p>
+      <p>{produto.descricao}</p>
+    </article>
+  )
+}
+```
+
+No painel, `(app)/painel/layout.js` é o layout com barra lateral da seção 2.3, e `(app)/painel/page.js` por enquanto é só um título. O link "Produtos" da barra lateral ainda leva à tela de "não encontrado", e isso é esperado: a página de cadastro nasce no Capítulo V.
+
+Com isso, a Vitrine responde a `/produtos`, a cada `/produtos/1`, `/produtos/2` e `/produtos/3`, e a um 404 correto em `/produtos/99`: tudo o que este capítulo ensinou funcionando junto, num projeto só. No seu projeto, o trabalho é tomar as mesmas decisões para o seu tema: quais grupos de rotas ele tem, qual trecho do endereço é dinâmico, e qual arquivo concentra o acesso aos dados.
+
+### 2.11 O Que Levar Deste Capítulo
 
 - cada pasta dentro de `app/` é um trecho do endereço, e só o `page.js` torna uma pasta acessível;
 - `Link` navega sem recarregar a página e busca o destino antes do clique; `<a>` comum fica para endereços externos;
@@ -263,6 +398,7 @@ Nenhum desses arquivos é obrigatório além do `page.js`. Comece só com págin
 - `notFound()` responde com 404 de verdade, e `not-found.js` personaliza a tela;
 - `(grupo)` organiza pastas e separa layouts sem aparecer no endereço;
 - `loading.js` mostra algo enquanto a página carrega, e `error.js` isola falhas sem derrubar o layout;
-- a ordem de fora para dentro é sempre `layout`, `error`, `loading`, `page`.
+- a ordem de fora para dentro é sempre `layout`, `error`, `loading`, `page`;
+- a Vitrine já tem parte pública e painel em grupos separados, e os produtos passam por `lib/produtos.js`, nunca direto pelas páginas.
 
 O próximo capítulo explica a linha `'use client'` que apareceu no `error.js`, e com ela a decisão mais importante do App Router: o que roda no servidor e o que roda no navegador.
