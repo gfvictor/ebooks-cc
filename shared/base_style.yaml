@@ -49,6 +49,7 @@ header-includes: |
   }
   \AtBeginEnvironment{Shaded}{\color{white}}
   \AtBeginDocument{
+    \renewcommand{\NormalTok}[1]{\textcolor{codewhite}{#1}}
     \renewcommand{\KeywordTok}[1]{\textcolor{monokaipink}{\textbf{#1}}}
     \renewcommand{\StringTok}[1]{\textcolor{monokaiorange}{#1}}
     \renewcommand{\BuiltInTok}[1]{\textcolor{monokaicyan}{#1}}
