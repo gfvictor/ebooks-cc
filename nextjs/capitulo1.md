@@ -14,7 +14,7 @@
 
 React é uma biblioteca para desenhar interfaces com componentes, e só isso. Ela não tem opinião sobre qual endereço mostra qual página, de onde vêm os dados, nem em que momento o HTML é montado: no servidor, no navegador, ou uma vez só, antes de o site ir para o ar. Um projeto React "puro" precisa responder a cada uma dessas perguntas escolhendo e amarrando bibliotecas por conta própria.
 
-Este capítulo apresenta as três respostas clássicas para a pergunta mais importante, "onde o HTML é montado?", mostra o que cada uma custa, e explica por que o Next.js não escolhe uma delas: ele deixa cada página usar a que faz sentido. No fim, você abre o projeto criado pelo `create-next-app` e entende o papel de cada arquivo.
+Este capítulo apresenta as três respostas clássicas para a pergunta mais importante, "onde o HTML é montado?", mostra o que cada uma custa, e explica por que o Next.js não escolhe uma delas: ele deixa cada página usar a que faz sentido. No fim, você abre o projeto criado pelo `create-next-app`, entende o papel de cada arquivo, e conhece o projeto que vai construir ao longo do livro inteiro.
 
 ### 1.1 As Perguntas Que Sobram
 
@@ -125,7 +125,7 @@ Com o projeto criado pelo `create-next-app`, como a Metodologia deste livro suge
 \newpage
 
 ```bash
-meu-projeto/
+vitrine/
   app/
     favicon.ico
     globals.css
@@ -148,7 +148,7 @@ Dois arquivos merecem atenção agora. O primeiro é `app/layout.js`:
 import './globals.css'
 
 export const metadata = {
-  title: 'Meu Projeto',
+  title: 'Vitrine',
 }
 
 export default function RootLayout({ children }) {
@@ -196,7 +196,27 @@ Com a mesma honestidade dos livros anteriores: nem todo projeto precisa de um fr
 
 Uma página estática de três seções, sem dados e sem formulário, fica perfeitamente bem em HTML e CSS puros, e o Livro I te deu tudo o que ela precisa. Um painel interno, atrás de login, sem nenhuma exigência de busca ou de prévia de link, pode ser uma aplicação React simples montada no navegador, com menos peças para entender. O Next.js compensa quando o projeto mistura as linhas da tabela da seção 1.6: páginas públicas que precisam aparecer rápido e bem indexadas, ao lado de páginas dinâmicas, formulários e dados vindos de um servidor. Que, não por acaso, é a descrição da maioria dos sites e sistemas que você vai construir.
 
-### 1.11 O Que Levar Deste Capítulo
+### 1.11 O Projeto Deste Livro
+
+Os exemplos dos Livros I e II podiam ser soltos, porque cada conceito de CSS cabe num trecho isolado. Com Next.js, não é assim. Buscar dados, salvar um formulário e publicar um site só fazem sentido de verdade quando existe um projeto em volta, com páginas que se ligam e dados que passam de uma para outra. Por isso, a partir do próximo capítulo, o livro acompanha um projeto só, do começo ao fim: a **Vitrine**, o catálogo online de uma pequena loja de periféricos de computador.
+
+A Vitrine tem duas partes. A pública é o que qualquer visitante vê: a página inicial, a lista de produtos e uma página para cada produto. A outra é o painel, onde o dono da loja cadastra produtos novos. Repare que ela mistura justamente as linhas da tabela da seção 1.6: páginas públicas que precisam aparecer rápido e bem para quem busca ou compartilha, ao lado de uma área de gestão com formulários e dados que mudam. É um retrato pequeno, mas honesto, do tipo de sistema para o qual o Next.js existe.
+
+Cada capítulo acrescenta uma peça:
+
+| Capítulo | O que a Vitrine ganha                                           |
+| -------- | --------------------------------------------------------------- |
+| II       | as páginas, os layouts, a rota de cada produto e o painel       |
+| III      | o botão de comprar e o botão de troca de tema                   |
+| IV       | produtos vindos de uma fonte de dados, com cache e carregamento |
+| V        | o formulário de cadastro no painel, com validação               |
+| VI       | título, imagem de compartilhamento, fotos, fonte e a publicação |
+
+Nem todo trecho de código daqui em diante é parte da Vitrine. Quando um conceito fica mais claro num exemplo isolado, como o contador de cliques do Capítulo III, ele aparece solto, só para ilustrar. O que de fato entra no projeto aparece reunido no fim de cada capítulo, numa seção chamada **A Vitrine Até Aqui**, com a lista de arquivos e o código de cada um.
+
+Como a Metodologia avisou, essas seções não são uma receita para copiar. Elas são o exemplo resolvido: mostram como as peças de cada capítulo se juntam num sistema. O seu projeto, com o tema que você escolher, deve ganhar as peças equivalentes a cada capítulo, com as suas próprias decisões. Se a Vitrine precisa de uma página por produto, pergunte-se qual é a página por item do seu projeto; se ela separa a parte pública do painel, decida onde fica essa fronteira no seu.
+
+### 1.12 O Que Levar Deste Capítulo
 
 - React desenha componentes; rotas, dados, local de renderização e build são perguntas que um framework responde por você;
 - CSR monta a página no navegador: simples, mas começa com uma `div` vazia;
@@ -205,6 +225,7 @@ Uma página estática de três seções, sem dados e sem formulário, fica perfe
 - hidratação é o JavaScript prendendo comportamento no HTML que já chegou pronto, e só componentes interativos precisam dela;
 - o Next.js escolhe a estratégia por rota, não por projeto, e a saída do `npm run build` mostra qual foi escolhida em cada uma;
 - o App Router (`app/`) é o modelo atual e o único deste livro; um tutorial com `pages/` ou `getServerSideProps` é do modelo antigo;
-- `app/layout.js` é a moldura de todas as páginas, e é onde o `globals.css` do Livro II entra no projeto.
+- `app/layout.js` é a moldura de todas as páginas, e é onde o `globals.css` do Livro II entra no projeto;
+- o livro acompanha um projeto de demonstração, a Vitrine; o seu projeto aplica as mesmas ideias com decisões próprias.
 
-O próximo capítulo abre a pasta `app/` de verdade: como pastas viram endereços, como layouts se aninham, e o que acontece quando uma página demora ou quebra.
+O próximo capítulo abre a pasta `app/` de verdade: como pastas viram endereços, como layouts se aninham, e o que acontece quando uma página demora ou quebra. E, no fim dele, a Vitrine ganha as primeiras páginas.

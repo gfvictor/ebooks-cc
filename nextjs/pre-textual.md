@@ -23,6 +23,10 @@ Este é o Livro III da coletânea **Fundamentos da Web Moderna**. Ele assume o C
 
 ### Metodologia de Estudo
 
-Crie um projeto novo com `npx create-next-app@latest` e deixe-o rodando ao lado deste livro. O instalador faz algumas perguntas: aceite o Tailwind e o App Router, e recuse o TypeScript por enquanto. Não porque ele seja dispensável, mas porque ele merece um livro inteiro, o Livro IV, e aprender dois assuntos novos ao mesmo tempo só dobra a confusão.
+Este livro não é um tutorial para seguir linha por linha. Ao longo dos capítulos, ele constrói um projeto de demonstração, a Vitrine, apresentada no fim do Capítulo I, para mostrar como cada conceito se encaixa num sistema de verdade. Mas a Vitrine é um exemplo resolvido, não o seu projeto. Se você leu o Prólogo desta coletânea, conhece o risco: reproduzir um projeto pronto, passo a passo, dá a sensação de aprender sem obrigar você a decidir nada.
 
-Cada capítulo traz arquivos curtos e completos. Crie cada um no seu projeto, abra o endereço no navegador, e depois abra também o terminal onde o servidor está rodando. Boa parte do que o Next.js faz acontece lá, e não no navegador; um `console.log` que aparece no terminal em vez do console do navegador ensina mais sobre Server Components do que qualquer diagrama.
+O uso certo é o contrário. Leia como a Vitrine resolve cada problema e aplique a mesma ideia num projeto seu, com outro tema, outros dados e outras páginas: o acervo de uma biblioteca, a agenda de um salão, o cardápio de uma lanchonete que você conhece. Qualquer coisa que tenha uma parte pública e uma parte de gestão serve. Cada decisão que a Vitrine já tomou por você é uma decisão que o seu projeto vai ter que tomar sozinho, e é aí que o aprendizado acontece.
+
+Para experimentar os exemplos, crie um projeto com `npx create-next-app@latest` e deixe-o rodando ao lado deste livro. O instalador faz algumas perguntas: aceite o Tailwind e o App Router, e recuse o TypeScript por enquanto. Não porque ele seja dispensável, mas porque ele merece um livro inteiro, o Livro IV, e aprender dois assuntos novos ao mesmo tempo só dobra a confusão.
+
+Cada capítulo traz arquivos curtos e completos. Experimente cada um, abra o endereço no navegador, e depois abra também o terminal onde o servidor está rodando. Boa parte do que o Next.js faz acontece lá, e não no navegador; um `console.log` que aparece no terminal em vez do console do navegador ensina mais sobre Server Components do que qualquer diagrama.
